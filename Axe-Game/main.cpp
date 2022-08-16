@@ -24,7 +24,7 @@ int main()
     const int CIRCLE_SPEED = 3;
 
     //Axe Variables
-    int axeX = SCREEN_WIDTH / 2;
+    int axeX = (SCREEN_WIDTH / 2) - 50;
     int axeY = 0;
     const int AXE_WIDTH = 100;
     const int AXE_HEIGHT = 50;
@@ -66,10 +66,36 @@ int main()
         if (collisionWithAxe)
         {
             DrawText("You Died!", 75, SCREEN_HEIGHT / 4, 250, RED);
+            if(IsKeyPressed(KEY_R))
+            {
+                collisionWithAxe = false;
+                
+                //Reset Player Position
+                circleX = 55;
+                circleY = SCREEN_HEIGHT / 2;
+
+                //Reset Axe Position
+                axeX = (SCREEN_WIDTH / 2) - 50;
+                axeY = 0;
+                axeDirection = 1;
+            }
         }
         else if (collisionWithFin)
         {
             DrawText("You Win!", 150, SCREEN_HEIGHT / 4, 250, GREEN);
+            if(IsKeyPressed(KEY_R))
+            {
+                collisionWithFin = false;
+                
+                //Reset Player Position
+                circleX = 55;
+                circleY = SCREEN_HEIGHT / 2;
+
+                //Reset Axe Position
+                axeX = (SCREEN_WIDTH / 2) - 50;
+                axeY = 0;
+                axeDirection = 1;
+            }
         }
         else
         {
