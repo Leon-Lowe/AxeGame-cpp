@@ -24,12 +24,13 @@ int main()
     const int CIRCLE_SPEED = 3;
 
     //Axe Variables
-    int rectX = SCREEN_WIDTH / 2;
-    int rectY = 0;
-    const int RECT_WIDTH = 100;
-    const int RECT_HEIGHT = 50;
-    const Color RECT_COLOUR = RED;
-    const int RECT_SPEED = 5;
+    int axeX = SCREEN_WIDTH / 2;
+    int axeY = 0;
+    const int AXE_WIDTH = 100;
+    const int AXE_HEIGHT = 50;
+    const Color AXE_COLOUR = RED;
+    const int AXE_SPEED = 5;
+    int axeDirection = 1;
 
     //Main Game Loop
     bool running = true;
@@ -48,10 +49,14 @@ int main()
 
         //Begin Game Logic
         DrawCircle(circleX, circleY, CIRCLE_RADIUS, CIRCLE_COLOUR);
-        DrawRectangle(rectX, rectY, RECT_WIDTH, RECT_HEIGHT, RECT_COLOUR);
+        DrawRectangle(axeX, axeY, AXE_WIDTH, AXE_HEIGHT, AXE_COLOUR);
 
         //Move Axe
-        rectY += (1 * RECT_SPEED);
+        axeY += (axeDirection * AXE_SPEED);
+        if((axeY + AXE_HEIGHT) >= SCREEN_HEIGHT || axeY <= 0)
+        {
+            axeDirection *= -1;
+        }
         
         //Horizontal Movement
         if (IsKeyDown(KEY_D) && circleX <= (SCREEN_WIDTH - CIRCLE_RADIUS))
