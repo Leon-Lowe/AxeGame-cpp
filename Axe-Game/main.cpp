@@ -38,29 +38,29 @@ int main()
         BeginDrawing();
         ClearBackground(WINDOW_COLOUR);
 
-#pragma region Game Logic
+        //Begin Game Logic
         DrawCircle(circleX, circleY, circleRadius, CIRCLE_COLOUR);
-
+        
         //Horizontal Movement
-        if (IsKeyDown(KEY_D))
+        if (IsKeyDown(KEY_D) && circleX <= (SCREEN_WIDTH - circleRadius))
         {
             circleX += (1 * CIRCLE_SPEED);
         }
-        if (IsKeyDown(KEY_A))
+        if (IsKeyDown(KEY_A) && circleX >= (0 + circleRadius))
         {
             circleX += (-1 * CIRCLE_SPEED);
         }
 
         //Vertical Movement
-        if (IsKeyDown(KEY_W))
+        if (IsKeyDown(KEY_W) && circleY >= (0 + circleRadius))
         {
             circleY += (-1 * CIRCLE_SPEED);
         }
-        if (IsKeyDown(KEY_S))
+        if (IsKeyDown(KEY_S) && circleY <= (SCREEN_HEIGHT - circleRadius))
         {
             circleY += (1 * CIRCLE_SPEED);
         }
-#pragma endregion
+        //End Game Logic
 
         EndDrawing();
     }
