@@ -23,6 +23,12 @@ int main()
     const Color CIRCLE_COLOUR = BLUE;
     const int CIRCLE_SPEED = 3;
 
+    //Circle Edges
+    int lCircleX = circleX - CIRCLE_RADIUS;
+    int rCircleX = circleX + CIRCLE_RADIUS;
+    int uCircleY = circleY - CIRCLE_RADIUS;
+    int bCircleY = circleY + CIRCLE_RADIUS;
+
     //Axe Variables
     int axeX = SCREEN_WIDTH / 2;
     int axeY = 0;
@@ -31,6 +37,12 @@ int main()
     const Color AXE_COLOUR = RED;
     const int AXE_SPEED = 5;
     int axeDirection = 1;
+    
+    //Axe Edges
+    int lAxeX = axeX;
+    int rAxeX = axeX + AXE_WIDTH;
+    int uAxeY = axeY;
+    int bAxeY = axeY + AXE_HEIGHT;
 
     //Main Game Loop
     bool running = true;
